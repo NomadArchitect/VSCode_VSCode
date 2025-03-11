@@ -128,8 +128,6 @@ export class PartialPromptVariableName extends ParserBase<TSimpleToken, PartialP
 		const firstToken = this.currentTokens[0];
 		const lastToken = this.currentTokens[this.currentTokens.length - 1];
 
-		// TODO: @lego - validate that first and last tokens are defined?
-
 		// render the characters above into strings, excluding the starting `#` character
 		const variableNameTokens = this.currentTokens.slice(1);
 		const variableName = variableNameTokens.map(pick('text')).join('');
@@ -201,8 +199,6 @@ export class PartialPromptVariableWithData extends ParserBase<TSimpleToken, Part
 			const firstToken = this.currentTokens[0];
 			const lastToken = this.currentTokens[this.currentTokens.length - 1];
 
-			// TODO: @lego - validate that first and last tokens are defined?
-
 			return {
 				result: 'success',
 				nextParser: new PromptVariableWithData(
@@ -255,8 +251,6 @@ export class PartialPromptVariableWithData extends ParserBase<TSimpleToken, Part
 
 		const firstToken = this.currentTokens[0];
 		const lastToken = this.currentTokens[this.currentTokens.length - 1];
-
-		// TODO: @lego - validate that first and last tokens are defined?
 
 		return new PromptVariableWithData(
 			new Range(
